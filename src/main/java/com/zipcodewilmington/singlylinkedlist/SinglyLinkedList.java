@@ -1,10 +1,12 @@
 package com.zipcodewilmington.singlylinkedlist;
 
 
+import java.util.Collections;
+
 /**
  * Created by leon on 1/10/18.
  */
-public class SinglyLinkedList<T> { //static?
+public class SinglyLinkedList<T extends Comparable<T>> { //static?
 
     Node<T> head;
 
@@ -43,11 +45,12 @@ public class SinglyLinkedList<T> { //static?
         }
         return -1;
     }
+
     public void remove(int position) {
         if (position == 0) {
             head = head.getNext();
         } else {
-            Node temp =head;
+            Node temp = head;
             for (int i = 1; i < position; i++) {
                 temp = temp.getNext();
             }
@@ -71,5 +74,64 @@ public class SinglyLinkedList<T> { //static?
         return false;
     }
 
+    public T getNodeData(int position) {
+        Node temp = head;
+        for (int i = 0; i < position; i++) {
+            temp = temp.getNext();
+        }
+        return (T) temp.getData();
+    }
 
+    public void setNodeDate(int position, T data) {
+        Node temp = head;
+        for (int i = 0; i < position; i++) {
+            temp = temp.getNext();
+        }
+        temp.setData(data);
+    }
+
+    public SinglyLinkedList<T> clone(){
+        SinglyLinkedList<T> copy = new SinglyLinkedList<>();
+        Node temp = head;
+        for (int i = 0; i < this.length; i++) {
+            Node newNode = new Node(temp.getData());
+            copy.add((T) newNode.getData());
+            temp = temp.getNext();
+        }
+        return copy;
+    }
+
+
+    public SinglyLinkedList<T> sort(SinglyLinkedList<T> list){
+       list = new SinglyLinkedList<>();
+
+       T temp = list.getNodeData(0);
+       Boolean sorted = false;
+
+       while(sorted == false) {
+           for(int i = 0; i < list.getLength() - 1; i++) {
+               if (temp.compareTo(this.getNodeData(i)) > 0) {
+//                   temp = input[i];
+//                   input[i] = input[i + 1];
+//                   input[i + 1] = temp;
+                   temp = list.getNodeData(i);
+//                   list.
+                   sorted = false;
+               }
+           }
+       }
+
+//        Node<T> temp = head;
+//        for (int i = 0; i < this.length; i++) {
+//            if(temp.getData().compareTo(this.getNodeData(i)) > 0) {
+//                copy.add(head.getData());
+//                temp = temp.getNext();
+//            } else {
+//                copy.add(this.getNodeData(i));
+//            }
+//
+//        }
+
+        return list;
+    }
 }

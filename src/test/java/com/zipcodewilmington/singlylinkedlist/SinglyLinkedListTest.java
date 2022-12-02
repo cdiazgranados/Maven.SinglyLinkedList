@@ -128,5 +128,95 @@ public class SinglyLinkedListTest {
         Assert.assertFalse(actual);
     }
 
+    @Test
+    public void testGetValuePosition2(){
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(4);
+        list.add(6);
+        int expected = 4;
+        int actual = list.getNodeData(2);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetValuePosition0(){
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(4);
+        list.add(6);
+        int expected = 1;
+        int actual = list.getNodeData(0);
+        Assert.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void testCloneLength(){
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(4);
+        list.add(6);
+        SinglyLinkedList<Integer> clone = list.clone();
+
+        int expected = 4;
+        int actual = clone.getLength();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testCloneGet(){
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(4);
+        list.add(6);
+        SinglyLinkedList<Integer> clone = list.clone();
+
+        int expected = 1;
+        int actual = clone.getNodeData(0);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetNodeData(){
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(4);
+        list.add(6);
+        list.setNodeDate(0, 4);
+        int expected = 4;
+        int actual = list.getNodeData(0);
+        Assert.assertEquals(expected, actual);
+    }
+
+
+
+//    @Test
+//    public void testSort(){
+//        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+//        list.add(4);
+//        list.add(5);
+//        list.add(2);
+//        list.add(1);
+//        list.add(6);
+//        SinglyLinkedList<Integer> listNew = list.sort();
+//        System.out.println("Start");
+//        System.out.print("[");
+//        for (int i = 0; i < listNew.getLength(); i++) {
+//
+//            if (i == listNew.getLength() - 1) {
+//                System.out.print(list.getNodeData(i));
+//            } else {
+//                System.out.print(list.getNodeData(i) + ",");
+//            }
+//        }
+//        System.out.print("]\n");
+//    }
+
 
 }
