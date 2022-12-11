@@ -188,35 +188,54 @@ public class SinglyLinkedListTest {
         list.add(2);
         list.add(4);
         list.add(6);
-        list.setNodeDate(0, 4);
+        list.setNodeData(0, 4);
         int expected = 4;
         int actual = list.getNodeData(0);
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGetLength(){
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(4);
+        list.add(6);
+        int expected = 4;
+        int actual = list.getLength();
+        Assert.assertEquals(expected, actual);
+    }
 
 
-//    @Test
-//    public void testSort(){
-//        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
-//        list.add(4);
-//        list.add(5);
-//        list.add(2);
-//        list.add(1);
-//        list.add(6);
-//        SinglyLinkedList<Integer> listNew = list.sort();
-//        System.out.println("Start");
-//        System.out.print("[");
-//        for (int i = 0; i < listNew.getLength(); i++) {
-//
-//            if (i == listNew.getLength() - 1) {
-//                System.out.print(list.getNodeData(i));
-//            } else {
-//                System.out.print(list.getNodeData(i) + ",");
-//            }
-//        }
-//        System.out.print("]\n");
-//    }
+
+    @Test
+    public void testSort(){
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(4);
+        list.add(5);
+        list.add(6);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(1);
+        list.add(2);
+        list.add(4);
+        list.add(7);
+        list.add(6);
+        list.add(8);
+        list.sort();
+
+        System.out.print("[");
+        for (int i = 0; i < list.getLength(); i++) {
+
+            if (i == list.getLength() - 1) {
+                System.out.print(list.getNodeData(i));
+            } else {
+                System.out.print(list.getNodeData(i) + ",");
+            }
+        }
+        System.out.print("]\n");
+    }
 
 
 }

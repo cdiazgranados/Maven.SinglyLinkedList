@@ -1,8 +1,6 @@
 package com.zipcodewilmington.singlylinkedlist;
 
 
-import java.util.Collections;
-
 /**
  * Created by leon on 1/10/18.
  */
@@ -82,7 +80,7 @@ public class SinglyLinkedList<T extends Comparable<T>> { //static?
         return (T) temp.getData();
     }
 
-    public void setNodeDate(int position, T data) {
+    public void setNodeData(int position, T data) {
         Node temp = head;
         for (int i = 0; i < position; i++) {
             temp = temp.getNext();
@@ -90,7 +88,7 @@ public class SinglyLinkedList<T extends Comparable<T>> { //static?
         temp.setData(data);
     }
 
-    public SinglyLinkedList<T> clone(){
+    public SinglyLinkedList<T> clone() {
         SinglyLinkedList<T> copy = new SinglyLinkedList<>();
         Node temp = head;
         for (int i = 0; i < this.length; i++) {
@@ -102,36 +100,68 @@ public class SinglyLinkedList<T extends Comparable<T>> { //static?
     }
 
 
-    public SinglyLinkedList<T> sort(SinglyLinkedList<T> list){
-       list = new SinglyLinkedList<>();
-
-       T temp = list.getNodeData(0);
-       Boolean sorted = false;
-
-       while(sorted == false) {
-           for(int i = 0; i < list.getLength() - 1; i++) {
-               if (temp.compareTo(this.getNodeData(i)) > 0) {
-//                   temp = input[i];
-//                   input[i] = input[i + 1];
-//                   input[i + 1] = temp;
-                   temp = list.getNodeData(i);
-//                   list.
-                   sorted = false;
-               }
-           }
-       }
-
-//        Node<T> temp = head;
-//        for (int i = 0; i < this.length; i++) {
-//            if(temp.getData().compareTo(this.getNodeData(i)) > 0) {
-//                copy.add(head.getData());
-//                temp = temp.getNext();
-//            } else {
-//                copy.add(this.getNodeData(i));
-//            }
+//    public void sort(){ //Move the values
+//       Node<T> temp = head;
+//       Node<T> current = temp.getNext();
+//       T tempData = temp.getData();
+//       boolean sorted = false;
 //
+//       while(!sorted) {
+//           sorted = true;
+//           for(int i = 0; i < this.getLength() - 1; i++) {
+//               if (tempData.compareTo(temp.getNext().getData()) < 0) {
+////                   tempData = temp.getData();
+////                   temp.getNext().setData(tempData);
+////                   temp.setData((T) temp.getNext());
+//
+////                   tempData = temp.getData();
+////                   temp.setData((i, this.getNodeData(i + 1));
+////                   this.setNodeData(i + 1, tempData);
+////                   tempData = this.getNodeData(i);
+//
+//                   sorted = false;
+//               }
+//           }
+//       }
+
+
+    public void sort() {
+        Node<T> current = head;
+        Node<T> next = current.getNext();
+        T tempData;
+
+        boolean sorted = false;
+
+        while (!sorted) {
+            sorted = true;
+            for (int i = 0; i < this.length - 1; i++) {
+                if (current.getData().compareTo(next.getData()) > 0) {
+                    tempData = current.getData();
+                    current.setData(next.getData());
+                    next.setData(tempData);
+
+                    sorted = false;
+                }
+                current = current.getNext();
+                next = current.getNext();
+            }
+            current = head;
+            next = current.getNext();
+        }
+    }
+
+//
+//    let temp = 0;
+//  for (let i = 0; i < arr.length; i++) {
+//        for (let j = 1; j < arr.length; j++) {
+//            if (arr[j - 1] > arr[i]) {
+//                temp = arr[j - 1];
+//                arr[j - 1] = arr[i];
+//                arr[i] = temp;
+//            }
 //        }
 
-        return list;
-    }
+
+
+
 }

@@ -1,8 +1,9 @@
 package com.zipcodewilmington.singlylinkedlist;
 
 public class Node<T> {
-
+    //public class Node<E extends Comparable <E>> implements Comparable<Node<E>> {
     T data;
+
     Node<T> next;
 
     Node(T data) {
