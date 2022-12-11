@@ -99,32 +99,6 @@ public class SinglyLinkedList<T extends Comparable<T>> { //static?
         return copy;
     }
 
-
-//    public void sort(){ //Move the values
-//       Node<T> temp = head;
-//       Node<T> current = temp.getNext();
-//       T tempData = temp.getData();
-//       boolean sorted = false;
-//
-//       while(!sorted) {
-//           sorted = true;
-//           for(int i = 0; i < this.getLength() - 1; i++) {
-//               if (tempData.compareTo(temp.getNext().getData()) < 0) {
-////                   tempData = temp.getData();
-////                   temp.getNext().setData(tempData);
-////                   temp.setData((T) temp.getNext());
-//
-////                   tempData = temp.getData();
-////                   temp.setData((i, this.getNodeData(i + 1));
-////                   this.setNodeData(i + 1, tempData);
-////                   tempData = this.getNodeData(i);
-//
-//                   sorted = false;
-//               }
-//           }
-//       }
-
-
     public void sort() {
         Node<T> current = head;
         Node<T> next = current.getNext();
@@ -149,19 +123,4 @@ public class SinglyLinkedList<T extends Comparable<T>> { //static?
             next = current.getNext();
         }
     }
-
-//
-//    let temp = 0;
-//  for (let i = 0; i < arr.length; i++) {
-//        for (let j = 1; j < arr.length; j++) {
-//            if (arr[j - 1] > arr[i]) {
-//                temp = arr[j - 1];
-//                arr[j - 1] = arr[i];
-//                arr[i] = temp;
-//            }
-//        }
-
-
-
-
 }
